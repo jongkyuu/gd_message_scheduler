@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Customer Information</h1>
+    <form method="get" action="{{ url_for('customer_info') }}">
+        <label for="view">View:</label>
+        <select id="view" name="view" onchange="this.form.submit()">
+            <option value="all" {% if view=='all' %}selected{% endif %}>All</option>
+            <option value="today" {% if view=='today' %}selected{% endif %}>Today</option>
+        </select>
+    </form>
+    <table>
+        <tr>
+            <th>Phone Number</th>
+            <th>Name</th>
+            <th>Clearance Code</th>
+            <th>Date Received</th>
+        </tr>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.phone_number }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.clearance_code }}</td>
+            <td>{{ customer.date_received }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+
+</html>

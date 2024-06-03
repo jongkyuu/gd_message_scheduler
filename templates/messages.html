@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scheduled Messages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Scheduled Messages</h1>
+    <form method="post">
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <label for="send_time">Send Time (HH:MM):</label>
+        <input type="time" id="send_time" name="send_time" required>
+        <button type="submit">Schedule Message</button>
+    </form>
+    <ul>
+        {% for msg in messages %}
+        <li>{{ msg.phone_number }}: {{ msg.message }} at {{ msg.send_time }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+
+</html>

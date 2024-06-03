@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Message Scheduler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Message Scheduler</h1>
+    <ul>
+        <li><a href="{{ url_for('templates') }}">Templates</a></li>
+        <li><a href="{{ url_for('schedule_message') }}">Schedule Messages</a></li>
+        <li><a href="{{ url_for('settings') }}">Settings</a></li>
+        <li><a href="{{ url_for('incoming_messages') }}">Incoming Messages</a></li>
+        <li><a href="{{ url_for('customer_info') }}">Customer Info</a></li>
+        <li><a href="{{ url_for('send_reply') }}">Send Reply</a></li>
+    </ul>
+</body>
+
+</html>

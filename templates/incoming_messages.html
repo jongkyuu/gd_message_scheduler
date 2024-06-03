@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Incoming Messages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Incoming Messages</h1>
+    <table>
+        <tr>
+            <th>Message</th>
+            <th>Analysis Result</th>
+            <th>Date Received</th>
+        </tr>
+        {% for msg in messages %}
+        <tr>
+            <td>{{ msg.message }}</td>
+            <td>{{ msg.analysis_result }}</td>
+            <td>{{ msg.date_received }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+
+</html>
